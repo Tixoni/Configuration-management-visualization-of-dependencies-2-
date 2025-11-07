@@ -1,8 +1,8 @@
-package_name: example-package
-repository_url: https://github.com/example/repo
-test_repository_mode: false
-package_version: 1.0.0
-output_filename: dependency_graph.png
-ascii_tree_output: true
-max_depth: 3
-filter_substring: test
+package_name: express                               #имя пакеда для анализа
+repository_url: https://registry.npmjs.org          #URL-адрес репозитория или путь к файлу тестового репозитория
+test_repository_mode: false                         #Режим работы с тестовым репозиторием
+package_version: latest                             #Версия пакета
+output_filename: dependency_graph.txt               #Имя сгенерированного файла с изображением графа
+ascii_tree_output: true                             #Режим вывода зависимостей в формате ASCII-дерева
+max_depth: 3                                        #Максимальная глубина анализа зависимостей
+filter_substring: ""                              #Подстрока для фильтрации пакетов
