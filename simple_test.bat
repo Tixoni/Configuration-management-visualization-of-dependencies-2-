@@ -70,10 +70,32 @@ if %errorlevel% equ 0 (
 )
 echo.
 
+echo ТЕСТ 4: Python пакет в онлайн-режиме (требует интернет)
+echo.
+(
+echo package_name: requests
+echo repository_url: https://pypi.org/pypi
+echo test_repository_mode: false
+echo package_version: latest
+echo output_filename: test4_python.txt
+echo ascii_tree_output: true
+echo max_depth: 2
+echo filter_substring: ""
+) > test4.yaml
+
+python main.py test4.yaml
+if %errorlevel% equ 0 (
+    echo ТЕСТ 4 ПРОЙДЕН: Python пакет работает
+) else (
+    echo ТЕСТ 4 НЕ ПРОЙДЕН: Python пакет (возможно нет интернета)
+)
+echo.
+
 echo Очистка временных файлов...
 del test1.yaml 2>nul
 del test2.yaml 2>nul
 del test3.yaml 2>nul
+del test4.yaml 2>nul
 
 
 echo.
@@ -84,7 +106,7 @@ echo.
 echo Созданные файлы:
 dir /b test*.txt 2>nul
 echo.
-echo Если тест 2 не прошел - проверьте интернет-соединение
+echo Если тесты 2 или 4 не прошли - проверьте интернет-соединение
 echo Простое тестирование завершено!
 echo.
 

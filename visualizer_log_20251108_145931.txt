@@ -1,6 +1,6 @@
 
 ============================================================
-ЛОГ ВЫПОЛНЕНИЯ - 2025-11-08 10:57:49
+ЛОГ ВЫПОЛНЕНИЯ - 2025-11-08 14:59:31
 ============================================================
 ==================================================
 КОНФИГУРАЦИЯ ВИЗУАЛИЗАТОРА ЗАВИСИМОСТЕЙ
@@ -82,18 +82,6 @@ filter_substring         :  (str)
 Анализ router@^2.2.0 (уровень 1)...
 Определен тип репозитория для 'https://registry.npmjs.org': npm
 Выполняется онлайн-запрос к: https://registry.npmjs.org/router
-Анализ depd@^2.0.0 (уровень 2)...
-Определен тип репозитория для 'https://registry.npmjs.org': npm
-Выполняется онлайн-запрос к: https://registry.npmjs.org/depd
-Анализ is-promise@^4.0.0 (уровень 2)...
-Определен тип репозитория для 'https://registry.npmjs.org': npm
-Выполняется онлайн-запрос к: https://registry.npmjs.org/is-promise
-Анализ parseurl@^1.3.3 (уровень 2)...
-Определен тип репозитория для 'https://registry.npmjs.org': npm
-Выполняется онлайн-запрос к: https://registry.npmjs.org/parseurl
-Анализ path-to-regexp@^8.0.0 (уровень 2)...
-Определен тип репозитория для 'https://registry.npmjs.org': npm
-Выполняется онлайн-запрос к: https://registry.npmjs.org/path-to-regexp
 Анализ accepts@^2.0.0 (уровень 1)...
 Определен тип репозитория для 'https://registry.npmjs.org': npm
 Выполняется онлайн-запрос к: https://registry.npmjs.org/accepts
@@ -115,6 +103,9 @@ filter_substring         :  (str)
 Анализ mime-types@^3.0.0 (уровень 2)...
 Определен тип репозитория для 'https://registry.npmjs.org': npm
 Выполняется онлайн-запрос к: https://registry.npmjs.org/mime-types
+Анализ parseurl@^1.3.3 (уровень 1)...
+Определен тип репозитория для 'https://registry.npmjs.org': npm
+Выполняется онлайн-запрос к: https://registry.npmjs.org/parseurl
 Анализ proxy-addr@^2.0.7 (уровень 1)...
 Определен тип репозитория для 'https://registry.npmjs.org': npm
 Выполняется онлайн-запрос к: https://registry.npmjs.org/proxy-addr
@@ -179,7 +170,7 @@ filter_substring         :  (str)
     │   ├── encodeurl@^2.0.0
     │   ├── escape-html@^1.0.3
     │   ├── etag@^1.8.1
-    │   ├── fresh@^2.0.0
+    │   ├── fresh@^2.0.0 [ОШИБКА: Ошибка получения пакета fresh: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)>]
     │   ├── http-errors@^2.0.0
     │   │   ├── depd@2.0.0
     │   │   ├── inherits@2.0.4
@@ -189,8 +180,7 @@ filter_substring         :  (str)
     │   ├── mime-types@^3.0.1
     │   │   └── mime-db@^1.54.0
     │   ├── ms@^2.1.3
-    │   ├── on-finished@^2.4.1
-    │   │   └── ee-first@1.1.1
+    │   ├── on-finished@^2.4.1 [ОШИБКА: Ошибка получения пакета on-finished: <urlopen error _ssl.c:993: The handshake operation timed out>]
     │   ├── range-parser@^1.2.1
     │   └── statuses@^2.0.1
     ├── vary@^1.1.2
@@ -198,12 +188,7 @@ filter_substring         :  (str)
     │   └── ms@^2.1.3
     ├── fresh@^2.0.0
     ├── cookie@^0.7.1
-    ├── router@^2.2.0
-    │   ├── debug@^4.4.0
-    │   ├── depd@^2.0.0
-    │   ├── is-promise@^4.0.0
-    │   ├── parseurl@^1.3.3
-    │   └── path-to-regexp@^8.0.0
+    ├── router@^2.2.0 [ОШИБКА: Ошибка получения пакета router: <urlopen error _ssl.c:993: The handshake operation timed out>]
     ├── accepts@^2.0.0
     │   ├── mime-types@~2.1.34
     │   │   └── mime-db@^1.54.0
@@ -276,5 +261,5 @@ filter_substring         :  (str)
 Анализ завершен успешно!
 
 ============================================================
-ВЫПОЛНЕНИЕ ЗАВЕРШЕНО - 2025-11-08 10:58:23
+ВЫПОЛНЕНИЕ ЗАВЕРШЕНО - 2025-11-08 15:01:05
 ============================================================

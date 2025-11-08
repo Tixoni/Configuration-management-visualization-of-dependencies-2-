@@ -8,30 +8,12 @@ import sys
 from dependency_visualizer import DependencyVisualizer
 
 
-def create_sample_config():
-    """Создание примерного конфигурационного файла"""
-    sample_config = """# Конфигурация анализатора зависимостей
-package_name: express
-repository_url: https://registry.npmjs.org
-test_repository_mode: false
-package_version: latest
-output_filename: dependency_graph.txt
-ascii_tree_output: true
-max_depth: 2
-filter_substring:
-"""
-    
-    with open("config.yaml", "w", encoding="utf-8") as f:
-        f.write(sample_config)
-    print("Создан пример конфигурационного файла: config.yaml")
-
 
 def main():
     """Точка входа в приложение"""
     # Создаем пример конфига если его нет
     if not os.path.exists("config.yaml"):
         print("Конфигурационный файл не найден.")
-        create_sample_config()
         print("Запустите программу снова для использования созданного конфигурационного файла.")
         return
     

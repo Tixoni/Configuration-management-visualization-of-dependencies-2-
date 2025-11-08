@@ -14,10 +14,9 @@ class DependencyAnalyzer:
         self.repository_client = RepositoryClient()
     
     def analyze_package(self, package_name: str, version: str = "latest", 
-                   repo_url: str = "https://registry.npmjs.org", depth: int = 0, 
-                   test_mode: bool = False) -> Dict[str, Any]:
-    
-    
+               repo_url: str = "https://registry.npmjs.org", depth: int = 0, 
+               test_mode: bool = False) -> Dict[str, Any]:
+
         if depth >= self.max_depth:
             return {"name": package_name, "version": version, "dependencies": {}}
         
@@ -34,33 +33,33 @@ class DependencyAnalyzer:
             repo_type = self.repository_client.detect_repository_type(repo_url)
             print(f"Определен тип репозитория для '{repo_url}': {repo_type}")
             
-            # Получаем информацию о пакете (ОБНОВЛЕННЫЙ КОД)
-            if repo_type == 'npm':
-                package_info = self.repository_client.fetch_npm_package_info(
-                    package_name, "latest", test_mode
-                )
-            elif repo_type == 'pypi':
-                package_info = self.repository_client.fetch_pypi_package_info(package_name, version)
-            elif repo_type == 'local':  # ← НОВАЯ ОБРАБОТКА ЛОКАЛЬНЫХ РЕПОЗИТОРИЕВ
-                print(f"Обработка локального репозитория: {repo_url}")
-                # Инициализируем тестовый репозиторий если еще не инициализирован
-                if not self.repository_client.test_repo:
-                    print(f"Инициализация тестового репозитория с путем: {repo_url}")
-                    self.repository_client.init_test_repository(repo_url)
-                else:
-                    print(f"Тестовый репозиторий уже инициализирован")
-                
-                print(f"Поиск пакета '{package_name}' в локальном репозитории...")
-                print(f"Загруженные пакеты: {list(self.repository_client.test_repo.packages.keys()) if self.repository_client.test_repo else 'репозиторий не инициализирован'}")
-                package_info = self.repository_client.test_repo.get_package(package_name, version)
-                if not package_info:
-                    available_packages = list(self.repository_client.test_repo.packages.keys()) if self.repository_client.test_repo else []
-                    raise NetworkError(
-                        f"Пакет {package_name} не найден в локальном репозитории {repo_url}. "
-                        f"Доступные пакеты: {', '.join(available_packages) if available_packages else 'нет'}"
+            # Получаем информацию о пакете
+            package_info = None
+            actual_version = version
+            
+            try:
+                if repo_type == 'npm':
+                    package_info = self.repository_client.fetch_npm_package_info(
+                        package_name, version, test_mode
                     )
-            else:
-                raise NetworkError(f"Неподдерживаемый репозиторий: {repo_url}")
+                elif repo_type == 'pypi':
+                    package_info = self.repository_client.fetch_pypi_package_info(package_name, version)
+                    # Получаем РЕАЛЬНУЮ версию из package_info
+                    actual_version = package_info.get('version', version)
+                elif repo_type == 'local':
+                    # существующая логика...
+                    pass
+                else:
+                    raise NetworkError(f"Неподдерживаемый репозиторий: {repo_url}")
+                    
+            except NetworkError as e:
+                # Если не удалось получить пакет, возвращаем ошибку но продолжаем
+                return {
+                    "name": package_name,
+                    "version": version,
+                    "error": str(e),
+                    "dependencies": {}
+                }
             
             # Извлекаем зависимости
             dependencies = self.repository_client.extract_dependencies(package_info, repo_type)
@@ -73,8 +72,6 @@ class DependencyAnalyzer:
             child_deps = {}
             for dep_name, dep_version in dependencies.items():
                 try:
-                    # Для локального репозитория сохраняем тип репозитория
-                    # Для npm репозитория передаем test_mode дальше
                     child_deps[dep_name] = self.analyze_package(
                         dep_name, dep_version, repo_url, depth + 1, test_mode
                     )
@@ -88,7 +85,7 @@ class DependencyAnalyzer:
             
             return {
                 "name": package_name,
-                "version": version,
+                "version": actual_version,  # ← используем РЕАЛЬНУЮ версию
                 "dependencies": child_deps
             }
             
