@@ -1,0 +1,280 @@
+
+============================================================
+ЛОГ ВЫПОЛНЕНИЯ - 2025-11-08 10:57:49
+============================================================
+==================================================
+КОНФИГУРАЦИЯ ВИЗУАЛИЗАТОРА ЗАВИСИМОСТЕЙ
+==================================================
+package_name             : express (str)
+repository_url           : https://registry.npmjs.org (str)
+test_repository_mode     : False (bool)
+package_version          : latest (str)
+output_filename          : test2_online.txt (str)
+ascii_tree_output        : True (bool)
+max_depth                : 3 (int)
+filter_substring         :  (str)
+==================================================
+
+Начинаем анализ пакета: express
+Репозиторий: https://registry.npmjs.org
+Версия: latest
+Макс. глубина: 3
+Анализ express@latest (уровень 0)...
+Определен тип репозитория для 'https://registry.npmjs.org': npm
+Выполняется онлайн-запрос к: https://registry.npmjs.org/express
+Анализ qs@^6.14.0 (уровень 1)...
+Определен тип репозитория для 'https://registry.npmjs.org': npm
+Выполняется онлайн-запрос к: https://registry.npmjs.org/qs
+Анализ side-channel@^1.1.0 (уровень 2)...
+Определен тип репозитория для 'https://registry.npmjs.org': npm
+Выполняется онлайн-запрос к: https://registry.npmjs.org/side-channel
+Анализ etag@^1.8.1 (уровень 1)...
+Определен тип репозитория для 'https://registry.npmjs.org': npm
+Выполняется онлайн-запрос к: https://registry.npmjs.org/etag
+Анализ once@^1.4.0 (уровень 1)...
+Определен тип репозитория для 'https://registry.npmjs.org': npm
+Выполняется онлайн-запрос к: https://registry.npmjs.org/once
+Анализ wrappy@1 (уровень 2)...
+Определен тип репозитория для 'https://registry.npmjs.org': npm
+Выполняется онлайн-запрос к: https://registry.npmjs.org/wrappy
+Анализ send@^1.1.0 (уровень 1)...
+Определен тип репозитория для 'https://registry.npmjs.org': npm
+Выполняется онлайн-запрос к: https://registry.npmjs.org/send
+Анализ debug@^4.3.5 (уровень 2)...
+Определен тип репозитория для 'https://registry.npmjs.org': npm
+Выполняется онлайн-запрос к: https://registry.npmjs.org/debug
+Анализ encodeurl@^2.0.0 (уровень 2)...
+Определен тип репозитория для 'https://registry.npmjs.org': npm
+Выполняется онлайн-запрос к: https://registry.npmjs.org/encodeurl
+Анализ escape-html@^1.0.3 (уровень 2)...
+Определен тип репозитория для 'https://registry.npmjs.org': npm
+Выполняется онлайн-запрос к: https://registry.npmjs.org/escape-html
+Анализ fresh@^2.0.0 (уровень 2)...
+Определен тип репозитория для 'https://registry.npmjs.org': npm
+Выполняется онлайн-запрос к: https://registry.npmjs.org/fresh
+Анализ http-errors@^2.0.0 (уровень 2)...
+Определен тип репозитория для 'https://registry.npmjs.org': npm
+Выполняется онлайн-запрос к: https://registry.npmjs.org/http-errors
+Анализ mime-types@^3.0.1 (уровень 2)...
+Определен тип репозитория для 'https://registry.npmjs.org': npm
+Выполняется онлайн-запрос к: https://registry.npmjs.org/mime-types
+Анализ ms@^2.1.3 (уровень 2)...
+Определен тип репозитория для 'https://registry.npmjs.org': npm
+Выполняется онлайн-запрос к: https://registry.npmjs.org/ms
+Анализ on-finished@^2.4.1 (уровень 2)...
+Определен тип репозитория для 'https://registry.npmjs.org': npm
+Выполняется онлайн-запрос к: https://registry.npmjs.org/on-finished
+Анализ range-parser@^1.2.1 (уровень 2)...
+Определен тип репозитория для 'https://registry.npmjs.org': npm
+Выполняется онлайн-запрос к: https://registry.npmjs.org/range-parser
+Анализ statuses@^2.0.1 (уровень 2)...
+Определен тип репозитория для 'https://registry.npmjs.org': npm
+Выполняется онлайн-запрос к: https://registry.npmjs.org/statuses
+Анализ vary@^1.1.2 (уровень 1)...
+Определен тип репозитория для 'https://registry.npmjs.org': npm
+Выполняется онлайн-запрос к: https://registry.npmjs.org/vary
+Анализ debug@^4.4.0 (уровень 1)...
+Определен тип репозитория для 'https://registry.npmjs.org': npm
+Выполняется онлайн-запрос к: https://registry.npmjs.org/debug
+Анализ cookie@^0.7.1 (уровень 1)...
+Определен тип репозитория для 'https://registry.npmjs.org': npm
+Выполняется онлайн-запрос к: https://registry.npmjs.org/cookie
+Анализ router@^2.2.0 (уровень 1)...
+Определен тип репозитория для 'https://registry.npmjs.org': npm
+Выполняется онлайн-запрос к: https://registry.npmjs.org/router
+Анализ depd@^2.0.0 (уровень 2)...
+Определен тип репозитория для 'https://registry.npmjs.org': npm
+Выполняется онлайн-запрос к: https://registry.npmjs.org/depd
+Анализ is-promise@^4.0.0 (уровень 2)...
+Определен тип репозитория для 'https://registry.npmjs.org': npm
+Выполняется онлайн-запрос к: https://registry.npmjs.org/is-promise
+Анализ parseurl@^1.3.3 (уровень 2)...
+Определен тип репозитория для 'https://registry.npmjs.org': npm
+Выполняется онлайн-запрос к: https://registry.npmjs.org/parseurl
+Анализ path-to-regexp@^8.0.0 (уровень 2)...
+Определен тип репозитория для 'https://registry.npmjs.org': npm
+Выполняется онлайн-запрос к: https://registry.npmjs.org/path-to-regexp
+Анализ accepts@^2.0.0 (уровень 1)...
+Определен тип репозитория для 'https://registry.npmjs.org': npm
+Выполняется онлайн-запрос к: https://registry.npmjs.org/accepts
+Анализ mime-types@~2.1.34 (уровень 2)...
+Определен тип репозитория для 'https://registry.npmjs.org': npm
+Выполняется онлайн-запрос к: https://registry.npmjs.org/mime-types
+Анализ negotiator@0.6.3 (уровень 2)...
+Определен тип репозитория для 'https://registry.npmjs.org': npm
+Выполняется онлайн-запрос к: https://registry.npmjs.org/negotiator
+Анализ type-is@^2.0.1 (уровень 1)...
+Определен тип репозитория для 'https://registry.npmjs.org': npm
+Выполняется онлайн-запрос к: https://registry.npmjs.org/type-is
+Анализ content-type@^1.0.5 (уровень 2)...
+Определен тип репозитория для 'https://registry.npmjs.org': npm
+Выполняется онлайн-запрос к: https://registry.npmjs.org/content-type
+Анализ media-typer@^1.1.0 (уровень 2)...
+Определен тип репозитория для 'https://registry.npmjs.org': npm
+Выполняется онлайн-запрос к: https://registry.npmjs.org/media-typer
+Анализ mime-types@^3.0.0 (уровень 2)...
+Определен тип репозитория для 'https://registry.npmjs.org': npm
+Выполняется онлайн-запрос к: https://registry.npmjs.org/mime-types
+Анализ proxy-addr@^2.0.7 (уровень 1)...
+Определен тип репозитория для 'https://registry.npmjs.org': npm
+Выполняется онлайн-запрос к: https://registry.npmjs.org/proxy-addr
+Анализ forwarded@0.2.0 (уровень 2)...
+Определен тип репозитория для 'https://registry.npmjs.org': npm
+Выполняется онлайн-запрос к: https://registry.npmjs.org/forwarded
+Анализ ipaddr.js@1.9.1 (уровень 2)...
+Определен тип репозитория для 'https://registry.npmjs.org': npm
+Выполняется онлайн-запрос к: https://registry.npmjs.org/ipaddr.js
+Анализ body-parser@^2.2.0 (уровень 1)...
+Определен тип репозитория для 'https://registry.npmjs.org': npm
+Выполняется онлайн-запрос к: https://registry.npmjs.org/body-parser
+Анализ bytes@^3.1.2 (уровень 2)...
+Определен тип репозитория для 'https://registry.npmjs.org': npm
+Выполняется онлайн-запрос к: https://registry.npmjs.org/bytes
+Анализ type-is@^2.0.0 (уровень 2)...
+Определен тип репозитория для 'https://registry.npmjs.org': npm
+Выполняется онлайн-запрос к: https://registry.npmjs.org/type-is
+Анализ raw-body@^3.0.0 (уровень 2)...
+Определен тип репозитория для 'https://registry.npmjs.org': npm
+Выполняется онлайн-запрос к: https://registry.npmjs.org/raw-body
+Анализ iconv-lite@^0.6.3 (уровень 2)...
+Определен тип репозитория для 'https://registry.npmjs.org': npm
+Выполняется онлайн-запрос к: https://registry.npmjs.org/iconv-lite
+Анализ finalhandler@^2.1.0 (уровень 1)...
+Определен тип репозитория для 'https://registry.npmjs.org': npm
+Выполняется онлайн-запрос к: https://registry.npmjs.org/finalhandler
+Анализ serve-static@^2.2.0 (уровень 1)...
+Определен тип репозитория для 'https://registry.npmjs.org': npm
+Выполняется онлайн-запрос к: https://registry.npmjs.org/serve-static
+Анализ send@^1.2.0 (уровень 2)...
+Определен тип репозитория для 'https://registry.npmjs.org': npm
+Выполняется онлайн-запрос к: https://registry.npmjs.org/send
+Анализ cookie-signature@^1.2.1 (уровень 1)...
+Определен тип репозитория для 'https://registry.npmjs.org': npm
+Выполняется онлайн-запрос к: https://registry.npmjs.org/cookie-signature
+Анализ merge-descriptors@^2.0.0 (уровень 1)...
+Определен тип репозитория для 'https://registry.npmjs.org': npm
+Выполняется онлайн-запрос к: https://registry.npmjs.org/merge-descriptors
+Анализ content-disposition@^1.0.0 (уровень 1)...
+Определен тип репозитория для 'https://registry.npmjs.org': npm
+Выполняется онлайн-запрос к: https://registry.npmjs.org/content-disposition
+Анализ safe-buffer@5.2.1 (уровень 2)...
+Определен тип репозитория для 'https://registry.npmjs.org': npm
+Выполняется онлайн-запрос к: https://registry.npmjs.org/safe-buffer
+
+Дерево зависимостей для express:
+└── express@latest
+    ├── qs@^6.14.0
+    │   └── side-channel@^1.1.0
+    │       ├── es-errors@^1.3.0
+    │       ├── object-inspect@^1.13.3
+    │       ├── side-channel-list@^1.0.0
+    │       ├── side-channel-map@^1.0.1
+    │       └── side-channel-weakmap@^1.0.2
+    ├── etag@^1.8.1
+    ├── once@^1.4.0
+    │   └── wrappy@1
+    ├── send@^1.1.0
+    │   ├── debug@^4.3.5
+    │   │   └── ms@^2.1.3
+    │   ├── encodeurl@^2.0.0
+    │   ├── escape-html@^1.0.3
+    │   ├── etag@^1.8.1
+    │   ├── fresh@^2.0.0
+    │   ├── http-errors@^2.0.0
+    │   │   ├── depd@2.0.0
+    │   │   ├── inherits@2.0.4
+    │   │   ├── statuses@2.0.1
+    │   │   ├── toidentifier@1.0.1
+    │   │   └── setprototypeof@1.2.0
+    │   ├── mime-types@^3.0.1
+    │   │   └── mime-db@^1.54.0
+    │   ├── ms@^2.1.3
+    │   ├── on-finished@^2.4.1
+    │   │   └── ee-first@1.1.1
+    │   ├── range-parser@^1.2.1
+    │   └── statuses@^2.0.1
+    ├── vary@^1.1.2
+    ├── debug@^4.4.0
+    │   └── ms@^2.1.3
+    ├── fresh@^2.0.0
+    ├── cookie@^0.7.1
+    ├── router@^2.2.0
+    │   ├── debug@^4.4.0
+    │   ├── depd@^2.0.0
+    │   ├── is-promise@^4.0.0
+    │   ├── parseurl@^1.3.3
+    │   └── path-to-regexp@^8.0.0
+    ├── accepts@^2.0.0
+    │   ├── mime-types@~2.1.34
+    │   │   └── mime-db@^1.54.0
+    │   └── negotiator@0.6.3
+    ├── type-is@^2.0.1
+    │   ├── content-type@^1.0.5
+    │   ├── media-typer@^1.1.0
+    │   └── mime-types@^3.0.0
+    │       └── mime-db@^1.54.0
+    ├── parseurl@^1.3.3
+    ├── statuses@^2.0.1
+    ├── encodeurl@^2.0.0
+    ├── mime-types@^3.0.0
+    ├── proxy-addr@^2.0.7
+    │   ├── forwarded@0.2.0
+    │   └── ipaddr.js@1.9.1
+    ├── body-parser@^2.2.0
+    │   ├── qs@^6.14.0
+    │   ├── bytes@^3.1.2
+    │   ├── debug@^4.4.0
+    │   ├── type-is@^2.0.0
+    │   │   ├── content-type@^1.0.5
+    │   │   ├── media-typer@^1.1.0
+    │   │   └── mime-types@^3.0.0
+    │   ├── raw-body@^3.0.0
+    │   │   ├── bytes@3.1.2
+    │   │   ├── http-errors@2.0.0
+    │   │   ├── iconv-lite@0.7.0
+    │   │   └── unpipe@1.0.0
+    │   ├── iconv-lite@^0.6.3
+    │   │   └── safer-buffer@>= 2.1.2 < 3.0.0
+    │   ├── http-errors@^2.0.0
+    │   ├── on-finished@^2.4.1
+    │   └── content-type@^1.0.5
+    ├── escape-html@^1.0.3
+    ├── http-errors@^2.0.0
+    ├── on-finished@^2.4.1
+    ├── content-type@^1.0.5
+    ├── finalhandler@^2.1.0
+    │   ├── debug@^4.4.0
+    │   ├── parseurl@^1.3.3
+    │   ├── statuses@^2.0.1
+    │   ├── encodeurl@^2.0.0
+    │   ├── escape-html@^1.0.3
+    │   └── on-finished@^2.4.1
+    ├── range-parser@^1.2.1
+    ├── serve-static@^2.2.0
+    │   ├── encodeurl@^2.0.0
+    │   ├── escape-html@^1.0.3
+    │   ├── parseurl@^1.3.3
+    │   └── send@^1.2.0
+    │       ├── debug@^4.3.5
+    │       ├── encodeurl@^2.0.0
+    │       ├── escape-html@^1.0.3
+    │       ├── etag@^1.8.1
+    │       ├── fresh@^2.0.0
+    │       ├── http-errors@^2.0.0
+    │       ├── mime-types@^3.0.1
+    │       ├── ms@^2.1.3
+    │       ├── on-finished@^2.4.1
+    │       ├── range-parser@^1.2.1
+    │       └── statuses@^2.0.1
+    ├── cookie-signature@^1.2.1
+    ├── merge-descriptors@^2.0.0
+    └── content-disposition@^1.0.0
+        └── safe-buffer@5.2.1
+
+Граф зависимостей сохранен в файл: test2_online.txt
+
+Анализ завершен успешно!
+
+============================================================
+ВЫПОЛНЕНИЕ ЗАВЕРШЕНО - 2025-11-08 10:58:23
+============================================================

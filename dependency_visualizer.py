@@ -145,7 +145,8 @@ class DependencyVisualizer:
         dependency_tree = analyzer.analyze_package(
             package_name=self.config['package_name'],
             version="latest",
-            repo_url=self.config['repository_url']
+            repo_url=self.config['repository_url'],
+            test_mode=self.config['test_repository_mode']
         )
         
         return dependency_tree
@@ -176,14 +177,14 @@ class DependencyVisualizer:
                 self.display_ascii_tree(dep_tree, new_prefix, is_last_dep)
     
     def save_tree_to_file(self, tree: Dict[str, Any]):
-        """Сохраняет дерево зависимостей в текстовый файл"""
+        
         try:
-            # Генерируем имя файла на основе имени пакета
-            package_name = tree['name']
-            output_file = f"{package_name}_dependency_graph.txt"
-            
-            # Обновляем конфиг с новым именем файла
-            self.config['output_filename'] = output_file
+            # Используем имя файла из конфига, если указано, иначе генерируем
+            if self.config['output_filename'] and self.config['output_filename'] != 'dependency_graph.txt':
+                output_file = self.config['output_filename']
+            else:
+                package_name = tree['name']
+                output_file = f"{package_name}_dependency_graph.txt"
             
             with open(output_file, 'w', encoding='utf-8') as f:
                 # Заголовок файла
