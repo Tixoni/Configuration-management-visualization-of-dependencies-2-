@@ -1,0 +1,7 @@
+# Репозиторий с циклическими зависимостями для тестирования
+PACKAGEX
+    PACKAGEY
+PACKAGEY
+    PACKAGEZ
+PACKAGEZ
+    PACKAGEX

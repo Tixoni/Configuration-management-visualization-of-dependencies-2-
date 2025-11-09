@@ -5,6 +5,33 @@ echo ПРОСТОЙ ТЕСТ ВИЗУАЛИЗАТОРА
 echo ================================
 echo.
 
+echo Создание тестовых UPPERCASE репозиториев...
+(
+echo # Тестовый репозиторий с пакетами в UPPERCASE
+echo PACKAGEA
+echo     PACKAGEB
+echo     PACKAGEC
+echo PACKAGEB
+echo     PACKAGED
+echo     PACKAGEE
+echo PACKAGEC
+echo     PACKAGEF
+echo PACKAGED
+echo     PACKAGEG
+echo PACKAGEE
+echo PACKAGEF
+echo PACKAGEG
+) > test_uppercase_repo.txt
+
+(
+echo # Репозиторий с циклическими зависимостями для тестирования
+echo PACKAGEX
+echo     PACKAGEY
+echo PACKAGEY
+echo     PACKAGEZ
+echo PACKAGEZ
+echo     PACKAGEX
+) > test_uppercase_repo_cyclic.txt
 
 echo.
 echo ТЕСТ 1: Офлайн-режим (встроенные данные)
@@ -91,12 +118,77 @@ if %errorlevel% equ 0 (
 )
 echo.
 
+echo ТЕСТ 5: UPPERCASE репозиторий (специальный формат)
+echo.
+(
+echo package_name: PACKAGEA
+echo repository_url: test_uppercase_repo.txt
+echo test_repository_mode: false
+echo package_version: latest
+echo output_filename: test5_uppercase.txt
+echo ascii_tree_output: true
+echo max_depth: 3
+echo filter_substring: ""
+) > test5.yaml
+
+python main.py test5.yaml
+if %errorlevel% equ 0 (
+    echo ТЕСТ 5 ПРОЙДЕН: UPPERCASE репозиторий работает
+) else (
+    echo ТЕСТ 5 НЕ ПРОЙДЕН: UPPERCASE репозиторий
+)
+echo.
+
+echo ТЕСТ 6: UPPERCASE репозиторий с циклическими зависимостями
+echo.
+(
+echo package_name: PACKAGEX
+echo repository_url: test_uppercase_repo_cyclic.txt
+echo test_repository_mode: false
+echo package_version: latest
+echo output_filename: test6_uppercase_cyclic.txt
+echo ascii_tree_output: true
+echo max_depth: 5
+echo filter_substring: ""
+) > test6.yaml
+
+python main.py test6.yaml
+if %errorlevel% equ 0 (
+    echo ТЕСТ 6 ПРОЙДЕН: Циклические зависимости обработаны
+) else (
+    echo ТЕСТ 6 НЕ ПРОЙДЕН: Циклические зависимости
+)
+echo.
+
+echo ТЕСТ 7: Фильтрация в UPPERCASE репозитории
+echo.
+(
+echo package_name: PACKAGEA
+echo repository_url: test_uppercase_repo.txt
+echo test_repository_mode: false
+echo package_version: latest
+echo output_filename: test7_uppercase_filtered.txt
+echo ascii_tree_output: true
+echo max_depth: 3
+echo filter_substring: "PACKAGEE"
+) > test7.yaml
+
+python main.py test7.yaml
+if %errorlevel% equ 0 (
+    echo ТЕСТ 7 ПРОЙДЕН: Фильтрация в UPPERCASE работает
+) else (
+    echo ТЕСТ 7 НЕ ПРОЙДЕН: Фильтрация в UPPERCASE
+)
+echo.
+
 echo Очистка временных файлов...
 del test1.yaml 2>nul
 del test2.yaml 2>nul
 del test3.yaml 2>nul
 del test4.yaml 2>nul
-
+del test5.yaml 2>nul
+del test6.yaml 2>nul
+del test7.yaml 2>nul
 
 echo.
 echo ================================

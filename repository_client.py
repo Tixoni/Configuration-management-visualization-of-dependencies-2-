@@ -213,6 +213,27 @@ class RepositoryClient:
             if not dependencies:
                 print(f"  Зависимости не найдены")
         
+        elif repo_type == 'uppercase':
+            # ДОБАВЛЕННЫЙ БЛОК ДЛЯ UPPERCASE РЕПОЗИТОРИЯ
+            print(f"[EXTRACT DEBUG] Извлечение UPPERCASE зависимостей из: {package_info.get('name', 'unknown')}")
+            
+            # Проверяем несколько возможных мест хранения зависимостей
+            if 'dependencies' in package_info and package_info['dependencies']:
+                deps = package_info['dependencies']
+                print(f"[EXTRACT DEBUG] Найдены UPPERCASE зависимости: {deps}")
+                
+                if isinstance(deps, dict):
+                    dependencies = deps
+                    print(f"[EXTRACT DEBUG] Успешно извлечено {len(dependencies)} зависимостей")
+                else:
+                    print(f"[EXTRACT DEBUG] ОШИБКА: зависимости не в формате dict: {type(deps)}")
+                    dependencies = {}
+            else:
+                print(f"[EXTRACT DEBUG] ВНИМАНИЕ: нет зависимостей в package_info")
+                print(f"[EXTRACT DEBUG] Доступные ключи: {list(package_info.keys())}")
+                dependencies = {}
+        
+        print(f"[EXTRACT DEBUG] Итоговые зависимости ({repo_type}): {dependencies}")
         return dependencies
 
     def init_test_repository(self, repo_path: str):
@@ -225,30 +246,7 @@ class RepositoryClient:
         else:
             print(f"Использование существующего тестового репозитория: {self.test_repo_path}")
 
-    @staticmethod
-    def detect_repository_type(repo_url: str) -> str:
-        """Определяет тип репозитория по URL"""
-        if repo_url.startswith('./') or repo_url.startswith('../'):
-            return 'local'
-        
-        if not repo_url.startswith('http://') and not repo_url.startswith('https://'):
-            if '/' in repo_url or '\\' in repo_url:
-                normalized_path = os.path.normpath(repo_url)
-                if os.path.exists(normalized_path) or os.path.isdir(normalized_path):
-                    return 'local'
-                if ':' not in repo_url or (len(repo_url) > 2 and repo_url[1:3] == ':\\'):
-                    return 'local'
-        
-        if 'npmjs.org' in repo_url or 'registry.npmjs.org' in repo_url:
-            return 'npm'
-        elif 'pypi.org' in repo_url or 'pypi.python.org' in repo_url:
-            return 'pypi'
-        elif 'repo1.maven.org' in repo_url or 'maven.org' in repo_url:
-            return 'maven'
-        elif 'github.com' in repo_url:
-            return 'npm'
-        else:
-            return 'generic'
+    
 
     @staticmethod
     def fetch_npm_package_info(package_name: str, version: str = "latest", test_mode: bool = False) -> Dict[str, Any]:
@@ -322,3 +320,54 @@ class RepositoryClient:
             raise NetworkError(f"Ошибка парсинга ответа для {package_name}: {e}")
         except Exception as e:
             raise NetworkError(f"Неожиданная ошибка при получении {package_name}: {e}")
+        
+
+    
+    @staticmethod
+    def fetch_uppercase_package_info(package_name: str, version: str = "latest", repo_path: str = "") -> Dict[str, Any]:
+        """Получает информацию о пакете из UPPERCASE репозитория"""
+        try:
+            from uppercase_repository import UppercaseRepository
+            
+            repo = UppercaseRepository(repo_path)
+            package_info = repo.get_package(package_name, version)
+            
+            if not package_info:
+                raise NetworkError(f"Пакет {package_name} не найден в UPPERCASE репозитории")
+            
+            return package_info
+            
+        except ImportError:
+            raise NetworkError("Модуль UPPERCASE репозитория не доступен")
+        except Exception as e:
+            raise NetworkError(f"Ошибка получения пакета из UPPERCASE репозитория: {e}")
+
+    # Обновить метод detect_repository_type:
+    @staticmethod
+    def detect_repository_type(repo_url: str) -> str:
+        """Определяет тип репозитория по URL"""
+        # Проверяем UPPERCASE репозиторий по расширению .txt
+        if repo_url.endswith('.txt'):
+            return 'uppercase'
+        
+        if repo_url.startswith('./') or repo_url.startswith('../'):
+            return 'local'
+        
+        if not repo_url.startswith('http://') and not repo_url.startswith('https://'):
+            if '/' in repo_url or '\\' in repo_url:
+                normalized_path = os.path.normpath(repo_url)
+                if os.path.exists(normalized_path) or os.path.isdir(normalized_path):
+                    return 'local'
+            if ':' not in repo_url or (len(repo_url) > 2 and repo_url[1:3] == ':\\'):
+                return 'local'
+        
+        if 'npmjs.org' in repo_url or 'registry.npmjs.org' in repo_url:
+            return 'npm'
+        elif 'pypi.org' in repo_url or 'pypi.python.org' in repo_url:
+            return 'pypi'
+        elif 'repo1.maven.org' in repo_url or 'maven.org' in repo_url:
+            return 'maven'
+        elif 'github.com' in repo_url:
+            return 'npm'
+        else:
+            return 'generic'

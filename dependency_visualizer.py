@@ -14,7 +14,7 @@ class DependencyVisualizer:
     def __init__(self, config_path: str = "config.yaml"):
         self.config_path = config_path
         self.config: Dict[str, Any] = {}
-        self.output_capture = None
+        #self.output_capture = None  создание файдов с логами
         self.load_config()
     
     def load_config(self) -> None:
@@ -250,12 +250,12 @@ class DependencyVisualizer:
         """Основной метод запуска приложения"""
         try:
             # Создаем лог-файл с именем на основе текущего времени
-            timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-            log_filename = f"visualizer_log_{timestamp}.txt"
+            #timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+            #log_filename = f"visualizer_log_{timestamp}.txt"
             
             # Начинаем захват вывода
-            self.output_capture = OutputCapture(log_filename)
-            self.output_capture.start_capture()
+            #self.output_capture = OutputCapture(log_filename)
+            #self.output_capture.start_capture()
             
             # Основная логика
             self.display_config()
@@ -282,7 +282,7 @@ class DependencyVisualizer:
         except Exception as e:
             print(f"Неожиданная ошибка: {e}", file=sys.stderr)
             sys.exit(1)
-        finally:
+        #finally:
             # Всегда останавливаем захват вывода
-            if self.output_capture:
-                self.output_capture.stop_capture()
+            #if self.output_capture:
+                #self.output_capture.stop_capture()

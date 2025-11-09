@@ -1,4 +1,4 @@
-package_name: requests                              #имя пакеда для анализа
+package_name: scipy                             #имя пакеда для анализа
 repository_url: https://pypi.org/pypi               #URL-адрес репозитория или путь к файлу тестового репозитория
 test_repository_mode: false                         #Режим работы с тестовым репозиторием
 package_version: latest                             #Версия пакета
